@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1wv6mo6v0m06"]
+
+[ext_resource type="Texture2D" uid="uid://d1wjvbk3d3vdo" path="res://asset/characters/Not_Angry.png" id="1_ismtw"]
+[ext_resource type="Texture2D" uid="uid://ckatm7xd5g0py" path="res://asset/characters/Not_Idle.png" id="2_gwmgt"]
+[ext_resource type="Texture2D" uid="uid://cy8fwpaip4t72" path="res://asset/characters/Not_Talk.png" id="3_8y3hs"]
+[ext_resource type="Texture2D" uid="uid://csa333wlriylq" path="res://asset/characters/Not_Talk_Angry.png" id="3_gwmgt"]
+[ext_resource type="Texture2D" uid="uid://3mthewsrdqpn" path="res://asset/characters/Not_tomwater.png" id="5_h2wt4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wkqro"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ismtw")
+}],
+"loop": true,
+"name": &"Angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gwmgt")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gwmgt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8y3hs")
+}],
+"loop": true,
+"name": &"Talk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ismtw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gwmgt")
+}],
+"loop": true,
+"name": &"Talk_Angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_h2wt4")
+}],
+"loop": true,
+"name": &"tomwater",
+"speed": 5.0
+}]
+
+[node name="Not" type="AnimatedSprite3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+billboard = 2
+shaded = true
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_wkqro")
+animation = &"Talk"
+frame_progress = 0.113879

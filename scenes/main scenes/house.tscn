@@ -1,0 +1,127 @@
+[gd_scene load_steps=6 format=3 uid="uid://dejqfenqxam1l"]
+
+[ext_resource type="PackedScene" uid="uid://bdsj68oskwkex" path="res://scenes/main scenes/player.tscn" id="1_dfs4x"]
+[ext_resource type="PackedScene" uid="uid://bv1ox05dlww0k" path="res://scenes/Other/mansion.tscn" id="2_hwd1w"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o13qd"]
+sky_top_color = Color(0.327164, 0.334116, 0.886983, 1)
+sky_horizon_color = Color(0.898039, 0.301961, 0.34902, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.898039, 0.301961, 0.34902, 1)
+
+[sub_resource type="Sky" id="Sky_0pb76"]
+sky_material = SubResource("ProceduralSkyMaterial_o13qd")
+
+[sub_resource type="Environment" id="Environment_3x5ab"]
+background_mode = 2
+sky = SubResource("Sky_0pb76")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="main" type="Node3D"]
+
+[node name="player" parent="." instance=ExtResource("1_dfs4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.64, 3.47853, -51.6308)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_hwd1w")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 94.0376, 0, 0)
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-1, 9.59328e-09, -8.68948e-08, 0, 0.993961, 0.109734, 8.74228e-08, 0.109734, -0.993961, 0, 0, 0)
+light_color = Color(0.825265, 0.541416, 1, 1)
+light_energy = 3.3
+shadow_enabled = true
+directional_shadow_max_distance = 587.0
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3x5ab")
+
+[node name="เเสง" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.87782, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="เเสง"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -11.4146)
+light_color = Color(0.883999, 0.532276, 0.217212, 1)
+light_energy = 3.394
+shadow_enabled = true
+omni_range = 15.1381
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="เเสง"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -17.3085)
+light_color = Color(0.883999, 0.532276, 0.217212, 1)
+light_energy = 3.394
+shadow_enabled = true
+omni_range = 15.1381
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="เเสง"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -23.1069)
+light_color = Color(0.883999, 0.532276, 0.217212, 1)
+light_energy = 3.394
+shadow_enabled = true
+omni_range = 15.1381
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="เเสง"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -41.2109)
+light_color = Color(0.883999, 0.532276, 0.217212, 1)
+light_energy = 3.394
+shadow_enabled = true
+omni_range = 15.1381
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="เเสง"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -47.1047)
+light_color = Color(0.883999, 0.532276, 0.217212, 1)
+light_energy = 3.394
+shadow_enabled = true
+omni_range = 15.1381
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="เเสง"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -52.9032)
+light_color = Color(0.883999, 0.532276, 0.217212, 1)
+light_energy = 3.394
+shadow_enabled = true
+omni_range = 15.1381
+
+[node name="เเสง2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66351, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="เเสง2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -11.4146)
+light_color = Color(0.883999, 0.532276, 0.217212, 1)
+light_energy = 3.394
+shadow_enabled = true
+omni_range = 15.1381
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="เเสง2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -17.3085)
+light_color = Color(0.883999, 0.532276, 0.217212, 1)
+light_energy = 3.394
+shadow_enabled = true
+omni_range = 15.1381
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="เเสง2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -23.1069)
+light_color = Color(0.883999, 0.532276, 0.217212, 1)
+light_energy = 3.394
+shadow_enabled = true
+omni_range = 15.1381
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="เเสง2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -41.2109)
+light_color = Color(0.883999, 0.532276, 0.217212, 1)
+light_energy = 3.394
+shadow_enabled = true
+omni_range = 15.1381
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="เเสง2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -45.0759)
+light_color = Color(0.883999, 0.532276, 0.217212, 1)
+light_energy = 3.394
+shadow_enabled = true
+omni_range = 15.1381
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="เเสง2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -49.332)
+light_color = Color(0.883999, 0.532276, 0.217212, 1)
+light_energy = 3.394
+shadow_enabled = true
+omni_range = 15.1381
