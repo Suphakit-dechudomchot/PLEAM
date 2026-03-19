@@ -2380,7 +2380,7 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 26.1118, -0.0838303, 9.04213)
 transform = Transform3D(4.4632, 0, -2.25384, 0, 5, 0, 2.25384, 0, 4.4632, 26.5282, -0.0838303, 9.4478)
 
 [node name="Bottle10" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.4718)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.5879)
 
 [node name="Bottle" parent="Bottle10" instance=ExtResource("6_bs814")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 26.3177, -0.0838303, 7.58443)

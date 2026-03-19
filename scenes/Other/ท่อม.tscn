@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://doue2dtk358ta"]
+
+[ext_resource type="Texture2D" uid="uid://208gxnsjbsqw" path="res://asset/256x256/Wood/Wood_01-256x256.png" id="1_3xbji"]
+[ext_resource type="Texture2D" uid="uid://c1m7p8xdn210r" path="res://asset/256x256/Wood/Wood_02-256x256.png" id="2_w5wgg"]
+[ext_resource type="Texture2D" uid="uid://jf80jm7l22ew" path="res://asset/th-11134207-7qul4-lf8h2s3tj3l99d-Photoroom.png" id="3_xqeqf"]
+[ext_resource type="PackedScene" uid="uid://6vdrye34udht" path="res://scenes/Other/bottle.tscn" id="4_ldr5r"]
+[ext_resource type="PackedScene" uid="uid://c0hriurci2tdr" path="res://scenes/Other/can_1.tscn" id="5_tpow0"]
+[ext_resource type="PackedScene" uid="uid://p6yw7jh2617j" path="res://scenes/Other/sticker.tscn" id="6_8sxhf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp7rk"]
+albedo_texture = ExtResource("1_3xbji")
+uv1_scale = Vector3(10, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2yf06"]
+material = SubResource("StandardMaterial3D_kp7rk")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wo0y4"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jntum"]
+albedo_texture = ExtResource("2_w5wgg")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8wp50"]
+material = SubResource("StandardMaterial3D_jntum")
+
+[node name="ท่อม" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.53323, 0, 0, 0, 0.546287, 0, 0, 0, 0.739153, 0, 0, 0.127299)
+mesh = SubResource("BoxMesh_2yf06")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wo0y4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0441926, 0, 0, 0, 0.534514, 0, 0, 0, 0.0421215, -0.66069, 0.591972, 0.41186)
+mesh = SubResource("CylinderMesh_8wp50")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0441926, 0, 0, 0, 0.534514, 0, 0, 0, 0.0421215, 0.664137, 0.591972, 0.41186)
+mesh = SubResource("CylinderMesh_8wp50")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.136899, 0, 0, 0, 0.136899, 0, 0, 0, 0.136899, 0.00984561, 1.42209, 0.436909)
+texture = ExtResource("3_xqeqf")
+
+[node name="Bottle" parent="." instance=ExtResource("4_ldr5r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.512171, 0.274001, 0.248336)
+
+[node name="Bottle2" parent="." instance=ExtResource("4_ldr5r")]
+transform = Transform3D(0.388738, 0, -0.921348, 0, 1, 0, 0.921348, 0, 0.388738, 0.412826, 0.274001, 0.248336)
+
+[node name="Bottle3" parent="." instance=ExtResource("4_ldr5r")]
+transform = Transform3D(-0.983898, 0, 0.178734, 0, 1, 0, -0.178734, 0, -0.983898, 0.459269, 0.274001, 0.178874)
+
+[node name="Can1" parent="." instance=ExtResource("5_tpow0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.560883, 0.273144, 0.339067)
+
+[node name="Can2" parent="." instance=ExtResource("5_tpow0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.460233, 0.273144, 0.339067)
+
+[node name="Can3" parent="." instance=ExtResource("5_tpow0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.356823, 0.273144, 0.339067)
+
+[node name="StickerSet_2" parent="." instance=ExtResource("6_8sxhf")]
+transform = Transform3D(0.338518, 0, 0, 0, 0.338518, 0, 0, 0, 0.338518, -0.550275, 0.0908806, 0.5)
+
+[node name="StickerSet_3" parent="." instance=ExtResource("6_8sxhf")]
+transform = Transform3D(-0.219571, 0.257649, 0, -0.257649, -0.219571, 0, 0, 0, 0.338518, 0.58871, 0.00361687, 0.505417)
+
+[node name="StickerSet_4" parent="." instance=ExtResource("6_8sxhf")]
+transform = Transform3D(9.5903e-09, -1.12686e-08, 0.338518, -0.257795, -0.2194, 0, 0.2194, -0.257795, -1.47971e-08, 0.777436, 0.00361687, 0.0608846)

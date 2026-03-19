@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bw3bsrho0sd6n"]
+[gd_scene load_steps=23 format=3 uid="uid://bw3bsrho0sd6n"]
 
 [ext_resource type="Texture2D" uid="uid://bxwnnexqetmgo" path="res://asset/256x256/Floor/Horror_Floor_01-256x256.png" id="1_87ayr"]
 [ext_resource type="PackedScene" uid="uid://bdsj68oskwkex" path="res://scenes/main scenes/player.tscn" id="1_iw5jo"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c1wv6mo6v0m06" path="res://scenes/Characters/not.tscn" id="8_tckib"]
 [ext_resource type="PackedScene" uid="uid://p3jkkg88cult" path="res://scenes/Characters/pink.tscn" id="9_nj4kf"]
 [ext_resource type="AudioStream" uid="uid://cy2fn6gaqcc2c" path="res://asset/sound/morning.mp3" id="10_nj4kf"]
+[ext_resource type="PackedScene" uid="uid://bg1mc7ir6aq3i" path="res://scenes/Other/classroom_demoscene.tscn" id="11_tuo33"]
+[ext_resource type="PackedScene" uid="uid://bl55psdy2ip3o" path="res://scenes/Other/cafeteri_ademoscene.tscn" id="12_yd1qk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xnh6d"]
 sky_top_color = Color(0.445652, 0.62722, 1, 1)
@@ -64,7 +66,7 @@ environment = SubResource("Environment_v3cpt")
 [node name="3D" type="Node3D" parent="."]
 
 [node name="ground" type="MeshInstance3D" parent="3D"]
-transform = Transform3D(142.674, 0, 0, 0, 1, 0, 0, 0, 200.897, 0, -0.46327, 14.8811)
+transform = Transform3D(306.791, 0, 0, 0, 1, 0, 0, 0, 246.229, 0, -0.46327, 14.8811)
 material_override = SubResource("StandardMaterial3D_nj4kf")
 mesh = SubResource("BoxMesh_wvpkg")
 skeleton = NodePath("../..")
@@ -133,7 +135,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 118.375)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 128.185)
 
 [node name="R16" parent="3D/R" instance=ExtResource("5_sstgc")]
-transform = Transform3D(0.750238, 0, -0.661168, 0, 1, 0, 0.661168, 0, 0.750238, -38.8542, 0, 8.19446)
+transform = Transform3D(0.74149, 0, -0.669206, 0, 1, 0, 0.660017, 0, 0.751813, -39.766, 0, 8.96321)
 
 [node name="R18" parent="3D/R" instance=ExtResource("5_sstgc")]
 transform = Transform3D(0.857482, 0, 0.514514, 0, 1, 0, -0.514514, 0, 0.857482, 11.4179, 0, 95.3729)
@@ -142,7 +144,7 @@ transform = Transform3D(0.857482, 0, 0.514514, 0, 1, 0, -0.514514, 0, 0.857482, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.0065)
 
 [node name="R2" parent="3D" instance=ExtResource("5_sstgc")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 34.4938)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 83.1225, 0, 34.4938)
 
 [node name="R2" parent="3D/R2" instance=ExtResource("5_sstgc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.0255)
@@ -273,6 +275,51 @@ transform = Transform3D(0.857482, 0, 0.514514, 0, 1, 0, -0.514514, 0, 0.857482, 
 [node name="R17" parent="3D/R2" instance=ExtResource("5_sstgc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.0065)
 
+[node name="R45" parent="3D/R2" instance=ExtResource("5_sstgc")]
+transform = Transform3D(-0.00192029, 0, -1.10707, 0, 1, 0, 1.0002, 0, -0.00212547, -40.3196, 0, 0.76038)
+
+[node name="R46" parent="3D/R2" instance=ExtResource("5_sstgc")]
+transform = Transform3D(-0.00191991, 0, -0.999998, 0, 1, 0, 0.999998, 0, -0.00191991, 80.1978, 0, 174.266)
+
+[node name="R47" parent="3D/R2" instance=ExtResource("5_sstgc")]
+transform = Transform3D(-0.00191991, 0, -0.999998, 0, 1, 0, 0.999998, 0, -0.00191991, 70.2527, 0, 174.247)
+
+[node name="R48" parent="3D/R2" instance=ExtResource("5_sstgc")]
+transform = Transform3D(-0.00191991, 0, -0.999998, 0, 1, 0, 0.999998, 0, -0.00191991, 60.5086, 0, 174.228)
+
+[node name="R49" parent="3D/R2" instance=ExtResource("5_sstgc")]
+transform = Transform3D(-0.00191991, 0, -0.999998, 0, 1, 0, 0.999998, 0, -0.00191991, 50.6145, 0, 174.209)
+
+[node name="R50" parent="3D/R2" instance=ExtResource("5_sstgc")]
+transform = Transform3D(-0.00191991, 0, -0.999998, 0, 1, 0, 0.999998, 0, -0.00191991, 40.6694, 0, 174.19)
+
+[node name="R51" parent="3D/R2" instance=ExtResource("5_sstgc")]
+transform = Transform3D(-0.00191991, 0, -0.999998, 0, 1, 0, 0.999998, 0, -0.00191991, 30.9253, 0, 174.171)
+
+[node name="R52" parent="3D/R2" instance=ExtResource("5_sstgc")]
+transform = Transform3D(-0.00191991, 0, -0.999998, 0, 1, 0, 0.999998, 0, -0.00191991, 80.1978, 0, 174.266)
+
+[node name="R53" parent="3D/R2" instance=ExtResource("5_sstgc")]
+transform = Transform3D(-0.00191991, 0, -0.999998, 0, 1, 0, 0.999998, 0, -0.00191991, 70.2527, 0, 174.247)
+
+[node name="R54" parent="3D/R2" instance=ExtResource("5_sstgc")]
+transform = Transform3D(-0.00191991, 0, -0.999998, 0, 1, 0, 0.999998, 0, -0.00191991, 60.5086, 0, 174.228)
+
+[node name="R55" parent="3D/R2" instance=ExtResource("5_sstgc")]
+transform = Transform3D(-0.00191991, 0, -0.999998, 0, 1, 0, 0.999998, 0, -0.00191991, 50.6145, 0, 174.209)
+
+[node name="R56" parent="3D/R2" instance=ExtResource("5_sstgc")]
+transform = Transform3D(-0.00191991, 0, -0.999998, 0, 1, 0, 0.999998, 0, -0.00191991, 40.6694, 0, 174.19)
+
+[node name="R57" parent="3D/R2" instance=ExtResource("5_sstgc")]
+transform = Transform3D(-0.00191991, 0, -0.999998, 0, 1, 0, 0.999998, 0, -0.00191991, 30.9253, 0, 174.171)
+
+[node name="R58" parent="3D/R2" instance=ExtResource("5_sstgc")]
+transform = Transform3D(-0.00192146, 0, -1.4903, 0, 1, 0, 1.0008, 0, -0.00286125, 84.3429, 0, 174.19)
+
+[node name="R59" parent="3D/R2" instance=ExtResource("5_sstgc")]
+transform = Transform3D(-0.00191991, 0, -0.999998, 0, 1, 0, 0.999998, 0, -0.00191991, 90.306, 0, 174.171)
+
 [node name="C1" type="MeshInstance3D" parent="3D"]
 transform = Transform3D(25.3148, 0, 0, 0, 2.19295, 0, 0, 0, 9.49422, 0.684805, 1.35948, 2.13187)
 material_override = SubResource("StandardMaterial3D_yd1qk")
@@ -301,8 +348,10 @@ shaded = true
 alpha_cut = 2
 texture = ExtResource("7_q6oau")
 
+[node name="d" type="Node3D" parent="3D"]
+
 [node name="player" parent="." instance=ExtResource("1_iw5jo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00685, 4.10372, -37.3765)
+transform = Transform3D(0.995744, 0, -0.092162, 0, 1, 0, 0.092162, 0, 0.995744, 68.9358, 2.43191, 34.7829)
 
 [node name="Not" parent="." instance=ExtResource("8_tckib")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 3.15799, 2.98308, -38.6116)
@@ -313,3 +362,9 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.279884, 2.98308, -39.
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_nj4kf")
 autoplay = true
+
+[node name="classroom_demoscene" parent="." instance=ExtResource("11_tuo33")]
+transform = Transform3D(2.07771, 0, 0, 0, 2.07771, 0, 0, 0, 2.07771, 462.126, 0.391419, 13.259)
+
+[node name="CAFETERIAdemoscene" parent="." instance=ExtResource("12_yd1qk")]
+transform = Transform3D(1.64968, 0, 0, 0, 1.64968, 0, 0, 0, 1.64968, 7.14188, 0.0199442, 649.546)
