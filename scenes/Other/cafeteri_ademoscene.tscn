@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=4 uid="uid://bl55psdy2ip3o"]
+[gd_scene load_steps=89 format=4 uid="uid://bl55psdy2ip3o"]
 
 [ext_resource type="PackedScene" uid="uid://5fdf02tkx1l5" path="res://asset/3D/StylooClassroomAssetPack GLTF & FBX/catferia/FBX/CAFETERIAdemoscene.fbx" id="1_6o01y"]
 [ext_resource type="Texture2D" uid="uid://c8d2idvjdg1cw" path="res://asset/3D/StylooClassroomAssetPack GLTF & FBX/catferia/FBX/CAFETERIAdemoscene_0.png" id="2_61ebt"]
@@ -1226,6 +1226,8 @@ data = PackedVector3Array(-0.1, 2, 20, 0.1, 2, 20, -0.1, -2, 20, 0.1, 2, 20, 0.1
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q5803"]
 data = PackedVector3Array(-0.1, 2, 20, 0.1, 2, 20, -0.1, -2, 20, 0.1, 2, 20, 0.1, -2, 20, -0.1, -2, 20, 0.1, 2, -20, -0.1, 2, -20, 0.1, -2, -20, -0.1, 2, -20, -0.1, -2, -20, 0.1, -2, -20, 0.1, 2, 20, 0.1, 2, -20, 0.1, -2, 20, 0.1, 2, -20, 0.1, -2, -20, 0.1, -2, 20, -0.1, 2, -20, -0.1, 2, 20, -0.1, -2, -20, -0.1, 2, 20, -0.1, -2, 20, -0.1, -2, -20, 0.1, 2, 20, -0.1, 2, 20, 0.1, 2, -20, -0.1, 2, 20, -0.1, 2, -20, 0.1, 2, -20, -0.1, -2, 20, 0.1, -2, 20, -0.1, -2, -20, 0.1, -2, 20, 0.1, -2, -20, -0.1, -2, -20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6dhvr"]
 
 [node name="CAFETERIAdemoscene" instance=ExtResource("1_6o01y")]
 
@@ -3003,3 +3005,19 @@ transform = Transform3D(-7.77174e-08, 0, -1.77797, 0, 1.77797, 0, 1.77797, 0, -7
 
 [node name="door7" parent="." index="64" instance=ExtResource("3_gbq7w")]
 transform = Transform3D(-7.77174e-08, 0, -1.77797, 0, 1.77797, 0, 1.77797, 0, -7.77174e-08, -18.1638, 1.24933, -10.5174)
+
+[node name="door8" parent="." index="65" instance=ExtResource("3_gbq7w")]
+transform = Transform3D(1.77797, 0, 0, 0, 1.77797, 0, 0, 0, 1.77797, 6.73656, 1.24933, 18.3484)
+
+[node name="door9" parent="." index="66" instance=ExtResource("3_gbq7w")]
+transform = Transform3D(1.77797, 0, 0, 0, 1.77797, 0, 0, 0, 1.77797, 9.9459, 1.24933, 18.3326)
+
+[node name="door10" parent="." index="67" instance=ExtResource("3_gbq7w")]
+transform = Transform3D(1.77797, 0, 0, 0, 1.77797, 0, 0, 0, 1.77797, 6.73656, 1.24933, 19.5369)
+
+[node name="door11" parent="." index="68" instance=ExtResource("3_gbq7w")]
+transform = Transform3D(1.77797, 0, 0, 0, 1.77797, 0, 0, 0, 1.77797, 9.9459, 1.24933, 19.5211)
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." index="69"]
+transform = Transform3D(4.73197, 0, 0, 0, 3.96978, 0, 0, 0, 38, -21.3869, 1.54483, 0.569863)
+mesh = SubResource("BoxMesh_6dhvr")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://208gxnsjbsqw" path="res://asset/256x256/Wood/Wood_01-256x256.png" id="1_3xbji"]
 [ext_resource type="Texture2D" uid="uid://c1m7p8xdn210r" path="res://asset/256x256/Wood/Wood_02-256x256.png" id="2_w5wgg"]
-[ext_resource type="Texture2D" uid="uid://jf80jm7l22ew" path="res://asset/th-11134207-7qul4-lf8h2s3tj3l99d-Photoroom.png" id="3_xqeqf"]
+[ext_resource type="Texture2D" uid="uid://jf80jm7l22ew" path="res://asset/other/th-11134207-7qul4-lf8h2s3tj3l99d-Photoroom.png" id="3_xqeqf"]
 [ext_resource type="PackedScene" uid="uid://6vdrye34udht" path="res://scenes/Other/bottle.tscn" id="4_ldr5r"]
 [ext_resource type="PackedScene" uid="uid://c0hriurci2tdr" path="res://scenes/Other/can_1.tscn" id="5_tpow0"]
 [ext_resource type="PackedScene" uid="uid://p6yw7jh2617j" path="res://scenes/Other/sticker.tscn" id="6_8sxhf"]

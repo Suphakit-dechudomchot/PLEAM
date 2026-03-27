@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://dejqfenqxam1l"]
+[gd_scene load_steps=26 format=3 uid="uid://dejqfenqxam1l"]
 
-[ext_resource type="PackedScene" uid="uid://bdsj68oskwkex" path="res://scenes/main scenes/player.tscn" id="1_dfs4x"]
+[ext_resource type="Script" uid="uid://bqmd4v2bdp8u1" path="res://scripts/house.gd" id="1_l6tk7"]
 [ext_resource type="PackedScene" uid="uid://bv1ox05dlww0k" path="res://scenes/Other/mansion.tscn" id="2_hwd1w"]
 [ext_resource type="PackedScene" uid="uid://x0i7nh8fj0w7" path="res://asset/3D/bedroom/bed/bed.tscn" id="3_hwd1w"]
 [ext_resource type="PackedScene" uid="uid://bh5p3x5k75hhd" path="res://asset/3D/bedroom/bed/bookshelf.tscn" id="4_8x7ej"]
@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://p6yw7jh2617j" path="res://scenes/Other/sticker.tscn" id="13_inkc8"]
 [ext_resource type="PackedScene" uid="uid://6vdrye34udht" path="res://scenes/Other/bottle.tscn" id="14_16f7h"]
 [ext_resource type="PackedScene" uid="uid://evve31mlemdm" path="res://scenes/Other/table_dad.tscn" id="15_x4eef"]
+[ext_resource type="PackedScene" uid="uid://1371sgd8jut7" path="res://scenes/main scenes/PauseMenu.tscn" id="16_16f7h"]
+[ext_resource type="PackedScene" uid="uid://fbcei0kbn37c" path="res://scenes/main scenes/dialogue_camera.tscn" id="17_x4eef"]
+[ext_resource type="FontFile" uid="uid://canvwv65rra1n" path="res://asset/Font/Mitr/Mitr-Light.ttf" id="19_1bvbk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o13qd"]
 sky_top_color = Color(0.327164, 0.334116, 0.886983, 1)
@@ -31,13 +34,25 @@ sky = SubResource("Sky_0pb76")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="Animation" id="Animation_l6tk7"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_x4eef"]
+resource_name = "fade"
+length = 2.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5yor3"]
+_data = {
+&"RESET": SubResource("Animation_l6tk7"),
+&"fade": SubResource("Animation_x4eef")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_e5ptd"]
+font = ExtResource("19_1bvbk")
+font_size = 48
+
 [node name="main" type="Node3D"]
-
-[node name="player" parent="." instance=ExtResource("1_dfs4x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.894, 3.95915, -12.9592)
-
-[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_hwd1w")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 94.0342, 0.0339317, 0.00170326)
+script = ExtResource("1_l6tk7")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-1, 9.59328e-09, -8.68948e-08, 0, 0.993961, 0.109734, 8.74228e-08, 0.109734, -0.993961, 0, 0, 0)
@@ -49,171 +64,211 @@ directional_shadow_max_distance = 587.0
 [node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3x5ab")
 
-[node name="เเสง" type="Node3D" parent="."]
+[node name="3D" type="Node3D" parent="."]
+
+[node name="Sketchfab_Scene" parent="3D" instance=ExtResource("2_hwd1w")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 94.0342, 0.0339317, 0.00170326)
+
+[node name="เเสง" type="Node3D" parent="3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.87782, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="เเสง"]
+[node name="OmniLight3D" type="OmniLight3D" parent="3D/เเสง"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -11.4146)
 light_color = Color(0.883999, 0.532276, 0.217212, 1)
 light_energy = 3.394
 shadow_enabled = true
 omni_range = 15.1381
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="เเสง"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="3D/เเสง"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -17.3085)
 light_color = Color(0.883999, 0.532276, 0.217212, 1)
 light_energy = 3.394
 shadow_enabled = true
 omni_range = 15.1381
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="เเสง"]
+[node name="OmniLight3D3" type="OmniLight3D" parent="3D/เเสง"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -23.1069)
 light_color = Color(0.883999, 0.532276, 0.217212, 1)
 light_energy = 3.394
 shadow_enabled = true
 omni_range = 15.1381
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="เเสง"]
+[node name="OmniLight3D4" type="OmniLight3D" parent="3D/เเสง"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -41.2109)
 light_color = Color(0.883999, 0.532276, 0.217212, 1)
 light_energy = 3.394
 shadow_enabled = true
 omni_range = 15.1381
 
-[node name="OmniLight3D5" type="OmniLight3D" parent="เเสง"]
+[node name="OmniLight3D5" type="OmniLight3D" parent="3D/เเสง"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -47.1047)
 light_color = Color(0.883999, 0.532276, 0.217212, 1)
 light_energy = 3.394
 shadow_enabled = true
 omni_range = 15.1381
 
-[node name="OmniLight3D6" type="OmniLight3D" parent="เเสง"]
+[node name="OmniLight3D6" type="OmniLight3D" parent="3D/เเสง"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -52.9032)
 light_color = Color(0.883999, 0.532276, 0.217212, 1)
 light_energy = 3.394
 shadow_enabled = true
 omni_range = 15.1381
 
-[node name="OmniLight3D7" type="OmniLight3D" parent="เเสง"]
+[node name="OmniLight3D7" type="OmniLight3D" parent="3D/เเสง"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.609, 13.6502, -11.6317)
 light_color = Color(0.883999, 0.532276, 0.217212, 1)
 light_energy = 16.0
 shadow_enabled = true
 omni_range = 15.1381
 
-[node name="เเสง2" type="Node3D" parent="."]
+[node name="เเสง2" type="Node3D" parent="3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66351, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="เเสง2"]
+[node name="OmniLight3D" type="OmniLight3D" parent="3D/เเสง2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -11.4146)
 light_color = Color(0.883999, 0.532276, 0.217212, 1)
 light_energy = 3.394
 shadow_enabled = true
 omni_range = 15.1381
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="เเสง2"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="3D/เเสง2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -17.3085)
 light_color = Color(0.883999, 0.532276, 0.217212, 1)
 light_energy = 3.394
 shadow_enabled = true
 omni_range = 15.1381
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="เเสง2"]
+[node name="OmniLight3D3" type="OmniLight3D" parent="3D/เเสง2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -23.1069)
 light_color = Color(0.883999, 0.532276, 0.217212, 1)
 light_energy = 3.394
 shadow_enabled = true
 omni_range = 15.1381
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="เเสง2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -41.2109)
-light_color = Color(0.883999, 0.532276, 0.217212, 1)
-light_energy = 3.394
-shadow_enabled = true
-omni_range = 15.1381
-
-[node name="OmniLight3D5" type="OmniLight3D" parent="เเสง2"]
+[node name="OmniLight3D5" type="OmniLight3D" parent="3D/เเสง2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -45.0759)
 light_color = Color(0.883999, 0.532276, 0.217212, 1)
 light_energy = 3.394
 shadow_enabled = true
 omni_range = 15.1381
 
-[node name="OmniLight3D6" type="OmniLight3D" parent="เเสง2"]
+[node name="OmniLight3D6" type="OmniLight3D" parent="3D/เเสง2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.801, 9.25945, -49.332)
 light_color = Color(0.883999, 0.532276, 0.217212, 1)
 light_energy = 3.394
 shadow_enabled = true
 omni_range = 15.1381
 
-[node name="OmniLight3D7" type="OmniLight3D" parent="เเสง2"]
+[node name="OmniLight3D7" type="OmniLight3D" parent="3D/เเสง2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.675, 3.5928, 9.17818)
 light_color = Color(0.883999, 0.532276, 0.217212, 1)
 light_energy = 16.0
 shadow_enabled = true
 omni_range = 15.1381
 
-[node name="ห้องนอน" type="Node3D" parent="."]
+[node name="ห้องนอน" type="Node3D" parent="3D"]
 
-[node name="bed" parent="ห้องนอน" instance=ExtResource("3_hwd1w")]
+[node name="bed" parent="3D/ห้องนอน" instance=ExtResource("3_hwd1w")]
 transform = Transform3D(-1.14576e-07, 0, -2.6212, 0, 2.6212, 0, 2.6212, 0, -1.14576e-07, 112.963, 5.64063, -10.2368)
 
-[node name="bookshelf" parent="ห้องนอน" instance=ExtResource("4_8x7ej")]
+[node name="bookshelf" parent="3D/ห้องนอน" instance=ExtResource("4_8x7ej")]
 transform = Transform3D(2.15458, 0, 0, 0, 2.15458, 0, 0, 0, 2.15458, 94.853, 5.64063, -9.1596)
 
-[node name="bookshelf2" parent="ห้องนอน" instance=ExtResource("4_8x7ej")]
+[node name="bookshelf2" parent="3D/ห้องนอน" instance=ExtResource("4_8x7ej")]
 transform = Transform3D(2.15458, 0, 0, 0, 2.15458, 0, 0, 0, 2.15458, 94.853, 5.64063, -12.4063)
 
-[node name="dresser" parent="ห้องนอน" instance=ExtResource("5_8x7ej")]
+[node name="dresser" parent="3D/ห้องนอน" instance=ExtResource("5_8x7ej")]
 transform = Transform3D(-1.91748, 0, -1.67631e-07, 0, 1.91748, 0, 1.67631e-07, 0, -1.91748, 115.53, 5.64063, -14.4511)
 
-[node name="dresser2" parent="ห้องนอน" instance=ExtResource("5_8x7ej")]
+[node name="dresser2" parent="3D/ห้องนอน" instance=ExtResource("5_8x7ej")]
 transform = Transform3D(-1.91748, 0, -1.67631e-07, 0, 1.91748, 0, 1.67631e-07, 0, -1.91748, 115.53, 5.641, -6.01766)
 
-[node name="mirror2" parent="ห้องนอน" instance=ExtResource("6_8s4x4")]
+[node name="mirror2" parent="3D/ห้องนอน" instance=ExtResource("6_8s4x4")]
 transform = Transform3D(-6.58147e-08, 0, -1.50567, 0, 1.50567, 0, 1.50567, 0, -6.58147e-08, 105.363, 7.82145, -20.3069)
 
-[node name="ottoman" parent="ห้องนอน" instance=ExtResource("7_r7ymn")]
+[node name="ottoman" parent="3D/ห้องนอน" instance=ExtResource("7_r7ymn")]
 transform = Transform3D(1.48583, 0, 2.03608, 0, 2.52058, 0, -2.03608, 0, 1.48583, 96.0125, 5.64897, -1.56414)
 
-[node name="ottoman2" parent="ห้องนอน" instance=ExtResource("7_r7ymn")]
+[node name="ottoman2" parent="3D/ห้องนอน" instance=ExtResource("7_r7ymn")]
 transform = Transform3D(-0.784214, 0, 2.39548, 0, 2.52058, 0, -2.39548, 0, -0.784214, 96.2856, 5.64897, -3.70503)
 
-[node name="tv2" parent="ห้องนอน" instance=ExtResource("8_1iufw")]
+[node name="tv2" parent="3D/ห้องนอน" instance=ExtResource("8_1iufw")]
 transform = Transform3D(-1.00839e-07, 0, 2.73091, 0, 2.30693, 0, -2.30693, 0, -1.19372e-07, 102.018, 6.38388, -2.52352)
 
-[node name="nightstand" parent="ห้องนอน/tv2" instance=ExtResource("8_y2ys0")]
+[node name="nightstand" parent="3D/ห้องนอน/tv2" instance=ExtResource("8_y2ys0")]
 transform = Transform3D(-0.820129, 0, 1.04454e-07, 0, 0.40273, 0, -6.05666e-08, 0, -1.00932, -0.061062, -0.322184, 0.377323)
 
-[node name="nightstand2" parent="ห้องนอน/tv2" instance=ExtResource("8_y2ys0")]
+[node name="nightstand2" parent="3D/ห้องนอน/tv2" instance=ExtResource("8_y2ys0")]
 transform = Transform3D(-0.820129, 0, 1.04454e-07, 0, 0.40273, 0, -6.05666e-08, 0, -1.00932, -0.0611646, -0.322021, -0.328815)
 
-[node name="nightstand3" parent="ห้องนอน/tv2" instance=ExtResource("8_y2ys0")]
+[node name="nightstand3" parent="3D/ห้องนอน/tv2" instance=ExtResource("8_y2ys0")]
 transform = Transform3D(-0.856701, 0, 7.48952e-08, 0, 0.856701, 0, -6.32674e-08, 0, -0.723695, -0.0611647, -0.322021, 0.948418)
 
-[node name="nightstand4" parent="ห้องนอน/tv2" instance=ExtResource("8_y2ys0")]
+[node name="nightstand4" parent="3D/ห้องนอน/tv2" instance=ExtResource("8_y2ys0")]
 transform = Transform3D(-0.856701, 0, 7.48952e-08, 0, 0.856701, 0, -6.32674e-08, 0, -0.723695, -0.0611646, -0.322021, -0.907738)
 
-[node name="wardrobe" parent="ห้องนอน" instance=ExtResource("10_ys35p")]
+[node name="wardrobe" parent="3D/ห้องนอน" instance=ExtResource("10_ys35p")]
 transform = Transform3D(-2.56307e-08, 0, -0.586363, 0, 0.586363, 0, 0.586363, 0, -2.56307e-08, 100.474, 8.26303, -21.0877)
 
-[node name="wardrobe" parent="ห้องนอน/wardrobe" instance=ExtResource("11_up4x8")]
+[node name="wardrobe" parent="3D/ห้องนอน/wardrobe" instance=ExtResource("11_up4x8")]
 transform = Transform3D(0.973452, 0, -3.55271e-15, 0, 0.973452, 0, 3.55271e-15, 0, 0.973452, 0.167858, 1.00266, 2.39528)
 
-[node name="arm_chair" parent="ห้องนอน" instance=ExtResource("12_inkc8")]
+[node name="arm_chair" parent="3D/ห้องนอน" instance=ExtResource("12_inkc8")]
 transform = Transform3D(-5.77081e-08, 0, -4.33414, 0, 1.36199, 0, 1.32021, 0, -1.89451e-07, 103.326, 5.59855, -10.4633)
 
-[node name="arm_chair2" parent="ห้องนอน" instance=ExtResource("12_inkc8")]
+[node name="arm_chair2" parent="3D/ห้องนอน" instance=ExtResource("12_inkc8")]
 transform = Transform3D(0.792596, 0, -1.01271, 0, 1.17721, 0, 0.870411, 0, 0.922173, 96.769, 5.80374, -8.88756)
 
-[node name="StickerSet_2" parent="ห้องนอน" instance=ExtResource("13_inkc8")]
+[node name="StickerSet_2" parent="3D/ห้องนอน" instance=ExtResource("13_inkc8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.406, 9.35321, -20.4087)
 
-[node name="StickerSet_3" parent="ห้องนอน/StickerSet_2" instance=ExtResource("13_inkc8")]
+[node name="StickerSet_3" parent="3D/ห้องนอน/StickerSet_2" instance=ExtResource("13_inkc8")]
 transform = Transform3D(0.985449, 0.169969, 0, -0.169969, 0.985449, 0, 0, 0, 1, 1.30605, -1.05797, 0)
 
-[node name="Bottle" parent="ห้องนอน" instance=ExtResource("14_16f7h")]
+[node name="Bottle" parent="3D/ห้องนอน" instance=ExtResource("14_16f7h")]
 transform = Transform3D(-1.71067, 0, -2.23132, 0, 2.81161, 0, 2.23132, 0, -1.71067, 115.402, 7.5581, -13.3599)
 
-[node name="table dad" parent="." instance=ExtResource("15_x4eef")]
+[node name="table dad" parent="3D" instance=ExtResource("15_x4eef")]
 transform = Transform3D(-1.53277, 0, 1.33999e-07, 0, 1.53277, 0, -1.33999e-07, 0, -1.53277, 147.593, 0.774623, 12.953)
+
+[node name="DialogueCamera" parent="." instance=ExtResource("17_x4eef")]
+transform = Transform3D(-0.830955, -0.0484882, 0.554222, -2.28953e-09, 0.996195, 0.0871557, -0.556339, 0.0724225, -0.827794, 123.007, 3.25813, -28.1398)
+
+[node name="fade" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5yor3")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("16_16f7h")]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.698039)
+metadata/_edit_use_anchors_ = true
+
+[node name="Subtitle" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.0338542
+anchor_top = 0.5
+anchor_right = 0.967188
+anchor_bottom = 0.502778
+offset_left = -65.0
+offset_top = 430.0
+offset_right = 65.0
+offset_bottom = 531.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_e5ptd")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

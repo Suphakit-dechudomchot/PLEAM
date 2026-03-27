@@ -1,13 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://bx2830cpdi0se"]
+[gd_scene load_steps=23 format=3 uid="uid://bx2830cpdi0se"]
 
 [ext_resource type="Script" uid="uid://bx0kx7emwvl1u" path="res://scripts/day_night_cycle.gd" id="1_cgw0y"]
-[ext_resource type="PackedScene" uid="uid://bdsj68oskwkex" path="res://scenes/main scenes/player.tscn" id="1_t2h8e"]
 [ext_resource type="PackedScene" uid="uid://tr52cqd30pvu" path="res://scenes/Other/canal.tscn" id="2_cgw0y"]
 [ext_resource type="Texture2D" uid="uid://bc7dhq8utdqje" path="res://asset/256x256/Bricks/Bricks_02-256x256.png" id="3_0pb76"]
 [ext_resource type="PackedScene" uid="uid://bvfdgl65d1v7p" path="res://scenes/Other/trash_bag_3.tscn" id="4_mwe4i"]
 [ext_resource type="PackedScene" uid="uid://doue2dtk358ta" path="res://scenes/Other/ท่อม.tscn" id="5_d2n4e"]
 [ext_resource type="AudioStream" uid="uid://bvimioef3ssx3" path="res://asset/sound/creepy.mp3" id="6_0pb76"]
-[ext_resource type="PackedScene" uid="uid://p3jkkg88cult" path="res://scenes/Characters/pink.tscn" id="7_mwe4i"]
+[ext_resource type="PackedScene" uid="uid://1371sgd8jut7" path="res://scenes/main scenes/PauseMenu.tscn" id="8_d2n4e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cgw0y"]
 sky_top_color = Color(0.1111, 0.000113324, 0.326787, 1)
@@ -15,12 +14,12 @@ sky_horizon_color = Color(0.898039, 0.301961, 0.34902, 1)
 ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0.898039, 0.301961, 0.34902, 1)
 
-[sub_resource type="Sky" id="Sky_cgw0y"]
+[sub_resource type="Sky" id="Sky_d2n4e"]
 sky_material = SubResource("ProceduralSkyMaterial_cgw0y")
 
 [sub_resource type="Environment" id="Environment_mwe4i"]
 background_mode = 2
-sky = SubResource("Sky_cgw0y")
+sky = SubResource("Sky_d2n4e")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -39,11 +38,23 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0pb76"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_mwe4i"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_d2n4e"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ai0fd"]
+albedo_color = Color(0.446777, 0.446777, 0.446777, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2cmd4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_11ivi"]
+albedo_color = Color(0.446777, 0.446777, 0.446777, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nes7r"]
+albedo_color = Color(0.446777, 0.446777, 0.446777, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwbvk"]
+albedo_color = Color(0.446777, 0.446777, 0.446777, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1goy2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfa71"]
 transparency = 1
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
@@ -123,34 +134,339 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 12.5371, -4.56508, -41.6416)
 [node name="ท่อม" parent="3D" instance=ExtResource("5_d2n4e")]
 transform = Transform3D(-3.23812, 0, -2.83086e-07, 0, 3.23812, 0, 2.83086e-07, 0, -3.23812, 22.1505, 0.237456, 79.1924)
 
-[node name="player" parent="." instance=ExtResource("1_t2h8e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76959, 2.79357, 25.2272)
+[node name="spotlight" type="Node3D" parent="3D"]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_0pb76")
-autoplay = true
-
-[node name="Pink" parent="." instance=ExtResource("7_mwe4i")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.75254, 1.77708, 23.3013)
-frame_progress = 0.311876
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.390521, 0, 0, 0, 3.48934, 0, 0, 0, 0.390521, 4.50311, 2.6845, 24.8114)
-mesh = SubResource("CylinderMesh_mwe4i")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.38229, 0, 0, 0, 0.356977, 0, 0, 0, 0.467878, 3.6309, 6.03273, 24.8114)
-mesh = SubResource("BoxMesh_d2n4e")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.88268, 0, 0, 0, 0.282112, 0, 0, 0, 0.369755, 3.43576, 5.92461, 24.8114)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3D/spotlight"]
+transform = Transform3D(0.261813, 0, 0, 0, 2.95457, 0, 0, 0, 0.261813, 4.50311, 2.6845, 24.8114)
 material_override = SubResource("StandardMaterial3D_ai0fd")
-mesh = SubResource("BoxMesh_d2n4e")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="MeshInstance3D3"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="3D/spotlight"]
+transform = Transform3D(0.408555, 0, 0, 0, 0.132184, 0, 0, 0, 0.408555, 4.50311, 5.54743, 24.8114)
+material_override = SubResource("StandardMaterial3D_11ivi")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="3D/spotlight"]
+transform = Transform3D(0.408555, 0, 0, 0, 0.132184, 0, 0, 0, 0.408555, 4.50311, -0.0267968, 24.8114)
+material_override = SubResource("StandardMaterial3D_nes7r")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="3D/spotlight"]
+transform = Transform3D(2.84784, 0, 0, 0, 0.161525, 0, 0, 0, 0.467878, 3.4618, 5.75172, 24.8114)
+material_override = SubResource("StandardMaterial3D_fwbvk")
+mesh = SubResource("BoxMesh_1goy2")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="3D/spotlight"]
+transform = Transform3D(1.76727, 0, 0, 0, 0.19388, 0, 0, 0, 0.369755, 3.21858, 5.73057, 24.8114)
+material_override = SubResource("StandardMaterial3D_yfa71")
+mesh = SubResource("BoxMesh_1goy2")
+skeleton = NodePath("../../..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="3D/spotlight/MeshInstance3D3"]
 transform = Transform3D(0.531158, 0, 0, 0, -1.18712e-07, 3.53602, 0, -2.71582, -1.54564e-07, 0, 0, 0)
 light_energy = 16.0
 light_indirect_energy = 0.0
 shadow_enabled = true
 spot_range = 8.23795
 spot_angle = 48.8501
+
+[node name="spotlight2" type="Node3D" parent="3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 53.9293)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3D/spotlight2"]
+transform = Transform3D(0.261813, 0, 0, 0, 2.95457, 0, 0, 0, 0.261813, 4.50311, 2.6845, 24.8114)
+material_override = SubResource("StandardMaterial3D_ai0fd")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="3D/spotlight2"]
+transform = Transform3D(0.408555, 0, 0, 0, 0.132184, 0, 0, 0, 0.408555, 4.50311, 5.54743, 24.8114)
+material_override = SubResource("StandardMaterial3D_11ivi")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="3D/spotlight2"]
+transform = Transform3D(0.408555, 0, 0, 0, 0.132184, 0, 0, 0, 0.408555, 4.50311, -0.0267968, 24.8114)
+material_override = SubResource("StandardMaterial3D_nes7r")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="3D/spotlight2"]
+transform = Transform3D(2.84784, 0, 0, 0, 0.161525, 0, 0, 0, 0.467878, 3.4618, 5.75172, 24.8114)
+material_override = SubResource("StandardMaterial3D_fwbvk")
+mesh = SubResource("BoxMesh_1goy2")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="3D/spotlight2"]
+transform = Transform3D(1.76727, 0, 0, 0, 0.19388, 0, 0, 0, 0.369755, 3.21858, 5.73057, 24.8114)
+material_override = SubResource("StandardMaterial3D_yfa71")
+mesh = SubResource("BoxMesh_1goy2")
+skeleton = NodePath("../../..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="3D/spotlight2/MeshInstance3D3"]
+transform = Transform3D(0.531158, 0, 0, 0, -1.18712e-07, 3.53602, 0, -2.71582, -1.54564e-07, 0, 0, 0)
+light_energy = 16.0
+light_indirect_energy = 0.0
+shadow_enabled = true
+spot_range = 8.23795
+spot_angle = 48.8501
+
+[node name="spotlight3" type="Node3D" parent="3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -111.69)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3D/spotlight3"]
+transform = Transform3D(0.261813, 0, 0, 0, 2.95457, 0, 0, 0, 0.261813, 4.50311, 2.6845, 24.8114)
+material_override = SubResource("StandardMaterial3D_ai0fd")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="3D/spotlight3"]
+transform = Transform3D(0.408555, 0, 0, 0, 0.132184, 0, 0, 0, 0.408555, 4.50311, 5.54743, 24.8114)
+material_override = SubResource("StandardMaterial3D_11ivi")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="3D/spotlight3"]
+transform = Transform3D(0.408555, 0, 0, 0, 0.132184, 0, 0, 0, 0.408555, 4.50311, -0.0267968, 24.8114)
+material_override = SubResource("StandardMaterial3D_nes7r")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="3D/spotlight3"]
+transform = Transform3D(2.84784, 0, 0, 0, 0.161525, 0, 0, 0, 0.467878, 3.4618, 5.75172, 24.8114)
+material_override = SubResource("StandardMaterial3D_fwbvk")
+mesh = SubResource("BoxMesh_1goy2")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="3D/spotlight3"]
+transform = Transform3D(1.76727, 0, 0, 0, 0.19388, 0, 0, 0, 0.369755, 3.21858, 5.73057, 24.8114)
+material_override = SubResource("StandardMaterial3D_yfa71")
+mesh = SubResource("BoxMesh_1goy2")
+skeleton = NodePath("../../..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="3D/spotlight3/MeshInstance3D3"]
+transform = Transform3D(0.531158, 0, 0, 0, -1.18712e-07, 3.53602, 0, -2.71582, -1.54564e-07, 0, 0, 0)
+light_energy = 16.0
+light_indirect_energy = 0.0
+shadow_enabled = true
+spot_range = 8.23795
+spot_angle = 48.8501
+
+[node name="spotlight4" type="Node3D" parent="3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -57.7603)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3D/spotlight4"]
+transform = Transform3D(0.261813, 0, 0, 0, 2.95457, 0, 0, 0, 0.261813, 4.50311, 2.6845, 24.8114)
+material_override = SubResource("StandardMaterial3D_ai0fd")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="3D/spotlight4"]
+transform = Transform3D(0.408555, 0, 0, 0, 0.132184, 0, 0, 0, 0.408555, 4.50311, 5.54743, 24.8114)
+material_override = SubResource("StandardMaterial3D_11ivi")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="3D/spotlight4"]
+transform = Transform3D(0.408555, 0, 0, 0, 0.132184, 0, 0, 0, 0.408555, 4.50311, -0.0267968, 24.8114)
+material_override = SubResource("StandardMaterial3D_nes7r")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="3D/spotlight4"]
+transform = Transform3D(2.84784, 0, 0, 0, 0.161525, 0, 0, 0, 0.467878, 3.4618, 5.75172, 24.8114)
+material_override = SubResource("StandardMaterial3D_fwbvk")
+mesh = SubResource("BoxMesh_1goy2")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="3D/spotlight4"]
+transform = Transform3D(1.76727, 0, 0, 0, 0.19388, 0, 0, 0, 0.369755, 3.21858, 5.73057, 24.8114)
+material_override = SubResource("StandardMaterial3D_yfa71")
+mesh = SubResource("BoxMesh_1goy2")
+skeleton = NodePath("../../..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="3D/spotlight4/MeshInstance3D3"]
+transform = Transform3D(0.531158, 0, 0, 0, -1.18712e-07, 3.53602, 0, -2.71582, -1.54564e-07, 0, 0, 0)
+light_energy = 16.0
+light_indirect_energy = 0.0
+shadow_enabled = true
+spot_range = 8.23795
+spot_angle = 48.8501
+
+[node name="spotlight5" type="Node3D" parent="3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24.2005, 0, -8.46008)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3D/spotlight5"]
+transform = Transform3D(0.261813, 0, 0, 0, 2.95457, 0, 0, 0, 0.261813, 4.50311, 2.6845, 24.8114)
+material_override = SubResource("StandardMaterial3D_ai0fd")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="3D/spotlight5"]
+transform = Transform3D(0.408555, 0, 0, 0, 0.132184, 0, 0, 0, 0.408555, 4.50311, 5.54743, 24.8114)
+material_override = SubResource("StandardMaterial3D_11ivi")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="3D/spotlight5"]
+transform = Transform3D(0.408555, 0, 0, 0, 0.132184, 0, 0, 0, 0.408555, 4.50311, -0.0267968, 24.8114)
+material_override = SubResource("StandardMaterial3D_nes7r")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="3D/spotlight5"]
+transform = Transform3D(2.84784, 0, 0, 0, 0.161525, 0, 0, 0, 0.467878, 3.4618, 5.75172, 24.8114)
+material_override = SubResource("StandardMaterial3D_fwbvk")
+mesh = SubResource("BoxMesh_1goy2")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="3D/spotlight5"]
+transform = Transform3D(1.76727, 0, 0, 0, 0.19388, 0, 0, 0, 0.369755, 3.21858, 5.73057, 24.8114)
+material_override = SubResource("StandardMaterial3D_yfa71")
+mesh = SubResource("BoxMesh_1goy2")
+skeleton = NodePath("../../..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="3D/spotlight5/MeshInstance3D3"]
+transform = Transform3D(0.531158, 0, 0, 0, -1.18712e-07, 3.53602, 0, -2.71582, -1.54564e-07, 0, 0, 0)
+light_energy = 16.0
+light_indirect_energy = 0.0
+shadow_enabled = true
+spot_range = 8.23795
+spot_angle = 48.8501
+
+[node name="spotlight6" type="Node3D" parent="3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24.6783, 0, -62.3806)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3D/spotlight6"]
+transform = Transform3D(0.261813, 0, 0, 0, 2.95457, 0, 0, 0, 0.261813, 4.50311, 2.6845, 24.8114)
+material_override = SubResource("StandardMaterial3D_ai0fd")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="3D/spotlight6"]
+transform = Transform3D(0.408555, 0, 0, 0, 0.132184, 0, 0, 0, 0.408555, 4.50311, 5.54743, 24.8114)
+material_override = SubResource("StandardMaterial3D_11ivi")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="3D/spotlight6"]
+transform = Transform3D(0.408555, 0, 0, 0, 0.132184, 0, 0, 0, 0.408555, 4.50311, -0.0267968, 24.8114)
+material_override = SubResource("StandardMaterial3D_nes7r")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="3D/spotlight6"]
+transform = Transform3D(2.84784, 0, 0, 0, 0.161525, 0, 0, 0, 0.467878, 3.4618, 5.75172, 24.8114)
+material_override = SubResource("StandardMaterial3D_fwbvk")
+mesh = SubResource("BoxMesh_1goy2")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="3D/spotlight6"]
+transform = Transform3D(1.76727, 0, 0, 0, 0.19388, 0, 0, 0, 0.369755, 3.21858, 5.73057, 24.8114)
+material_override = SubResource("StandardMaterial3D_yfa71")
+mesh = SubResource("BoxMesh_1goy2")
+skeleton = NodePath("../../..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="3D/spotlight6/MeshInstance3D3"]
+transform = Transform3D(0.531158, 0, 0, 0, -1.18712e-07, 3.53602, 0, -2.71582, -1.54564e-07, 0, 0, 0)
+light_energy = 16.0
+light_indirect_energy = 0.0
+shadow_enabled = true
+spot_range = 8.23795
+spot_angle = 48.8501
+
+[node name="spotlight7" type="Node3D" parent="3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 23.7554, 0, 100.723)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3D/spotlight7"]
+transform = Transform3D(0.261813, 0, 0, 0, 2.95457, 0, 0, 0, 0.261813, 4.50311, 2.6845, 24.8114)
+material_override = SubResource("StandardMaterial3D_ai0fd")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="3D/spotlight7"]
+transform = Transform3D(0.408555, 0, 0, 0, 0.132184, 0, 0, 0, 0.408555, 4.50311, 5.54743, 24.8114)
+material_override = SubResource("StandardMaterial3D_11ivi")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="3D/spotlight7"]
+transform = Transform3D(0.408555, 0, 0, 0, 0.132184, 0, 0, 0, 0.408555, 4.50311, -0.0267968, 24.8114)
+material_override = SubResource("StandardMaterial3D_nes7r")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="3D/spotlight7"]
+transform = Transform3D(2.84784, 0, 0, 0, 0.161525, 0, 0, 0, 0.467878, 3.4618, 5.75172, 24.8114)
+material_override = SubResource("StandardMaterial3D_fwbvk")
+mesh = SubResource("BoxMesh_1goy2")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="3D/spotlight7"]
+transform = Transform3D(1.76727, 0, 0, 0, 0.19388, 0, 0, 0, 0.369755, 3.21858, 5.73057, 24.8114)
+material_override = SubResource("StandardMaterial3D_yfa71")
+mesh = SubResource("BoxMesh_1goy2")
+skeleton = NodePath("../../..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="3D/spotlight7/MeshInstance3D3"]
+transform = Transform3D(0.531158, 0, 0, 0, -1.18712e-07, 3.53602, 0, -2.71582, -1.54564e-07, 0, 0, 0)
+light_energy = 16.0
+light_indirect_energy = 0.0
+shadow_enabled = true
+spot_range = 8.23795
+spot_angle = 48.8501
+
+[node name="spotlight8" type="Node3D" parent="3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 23.9194, 0, 49.2908)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3D/spotlight8"]
+transform = Transform3D(0.261813, 0, 0, 0, 2.95457, 0, 0, 0, 0.261813, 4.50311, 2.6845, 24.8114)
+material_override = SubResource("StandardMaterial3D_ai0fd")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="3D/spotlight8"]
+transform = Transform3D(0.408555, 0, 0, 0, 0.132184, 0, 0, 0, 0.408555, 4.50311, 5.54743, 24.8114)
+material_override = SubResource("StandardMaterial3D_11ivi")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="3D/spotlight8"]
+transform = Transform3D(0.408555, 0, 0, 0, 0.132184, 0, 0, 0, 0.408555, 4.50311, -0.0267968, 24.8114)
+material_override = SubResource("StandardMaterial3D_nes7r")
+mesh = SubResource("CylinderMesh_2cmd4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="3D/spotlight8"]
+transform = Transform3D(2.84784, 0, 0, 0, 0.161525, 0, 0, 0, 0.467878, 3.4618, 5.75172, 24.8114)
+material_override = SubResource("StandardMaterial3D_fwbvk")
+mesh = SubResource("BoxMesh_1goy2")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="3D/spotlight8"]
+transform = Transform3D(1.76727, 0, 0, 0, 0.19388, 0, 0, 0, 0.369755, 3.21858, 5.73057, 24.8114)
+material_override = SubResource("StandardMaterial3D_yfa71")
+mesh = SubResource("BoxMesh_1goy2")
+skeleton = NodePath("../../..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="3D/spotlight8/MeshInstance3D3"]
+transform = Transform3D(0.531158, 0, 0, 0, -1.18712e-07, 3.53602, 0, -2.71582, -1.54564e-07, 0, 0, 0)
+light_energy = 16.0
+light_indirect_energy = 0.0
+shadow_enabled = true
+spot_range = 8.23795
+spot_angle = 48.8501
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_0pb76")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_d2n4e")]
+mouse_filter = 2

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf7wtuivsgqi2"]
+
+[ext_resource type="PackedScene" uid="uid://wfpplehovxxy" path="res://scenes/main scenes/main_menu.tscn" id="1_7cwb8"]
+[ext_resource type="PackedScene" uid="uid://pun0m7h0e2d0" path="res://scenes/main scenes/main_menu_ui.tscn" id="2_t3jf1"]
+[ext_resource type="AudioStream" uid="uid://jlp18pwt6g47" path="res://asset/sound/audio [music]_[cut_146sec].mp3" id="3_t3jf1"]
+
+[node name="MasterMainMenu" type="Node"]
+
+[node name="MainMenu3D" parent="." instance=ExtResource("1_7cwb8")]
+
+[node name="main_menu UI" parent="." instance=ExtResource("2_t3jf1")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_t3jf1")
+autoplay = true

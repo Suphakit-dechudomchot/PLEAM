@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=3 uid="uid://1371sgd8jut7"]
+
+[ext_resource type="FontFile" uid="uid://xdmgrkb3bmpn" path="res://asset/Font/Mitr/Mitr-Bold.ttf" id="1_0rpfq"]
+[ext_resource type="Script" uid="uid://omdqd6c7jxhm" path="res://scripts/pause_menu.gd" id="1_cj25t"]
+[ext_resource type="FontFile" uid="uid://rrfctt0rhgjv" path="res://asset/Font/Google_Sans/static/GoogleSans-Medium.ttf" id="2_cj25t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2pqsf"]
+bg_color = Color(0, 0, 0, 0.572549)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n6xub"]
+font = ExtResource("1_0rpfq")
+font_size = 90
+
+[sub_resource type="LabelSettings" id="LabelSettings_dw242"]
+font = ExtResource("1_0rpfq")
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yc6cr"]
+content_margin_top = 60.0
+content_margin_bottom = 60.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_whdga"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cj25t")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.305882)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 92.0
+offset_top = -56.0
+offset_right = 376.0
+offset_bottom = 955.0
+scale = Vector2(1.67666, 1.20855)
+theme_override_styles/panel = SubResource("StyleBoxFlat_2pqsf")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 142.0
+offset_top = 92.0
+offset_right = 532.0
+offset_bottom = 379.0
+text = "เธอกับฉัน 
+"
+label_settings = SubResource("LabelSettings_n6xub")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 69.0
+offset_top = 162.0
+offset_right = 592.0
+offset_bottom = 291.0
+text = "
+ในวันที่ฝันจางหายไปในควันขาว"
+label_settings = SubResource("LabelSettings_dw242")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 94.0
+offset_top = 400.0
+offset_right = 565.0
+offset_bottom = 1160.0
+theme_override_constants/separation = 30
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cj25t")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = SubResource("StyleBoxFlat_yc6cr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_whdga")
+text = "RESUME"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cj25t")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = SubResource("StyleBoxFlat_yc6cr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_whdga")
+text = "MAIN MENU
+"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cj25t")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = SubResource("StyleBoxFlat_yc6cr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_whdga")
+text = "OPTIONS"
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cj25t")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = SubResource("StyleBoxFlat_yc6cr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_whdga")
+text = "EXIT"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_quit_button_pressed"]

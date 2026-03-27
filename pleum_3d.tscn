@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://csealx5apmirm"]
+
+[ext_resource type="PackedScene" uid="uid://c73u02bruvsfp" path="res://pleam_test.tscn" id="1_10del"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5bvsa"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Pleum_3D" type="Node3D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="pleam" parent="SubViewport" instance=ExtResource("1_10del")]
+position = Vector2(466, 28)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 2
+alpha_cut = 2
+texture = SubResource("ViewportTexture_5bvsa")
+
+[editable path="SubViewport/pleam"]

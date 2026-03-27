@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://fbcei0kbn37c"]
+
+[ext_resource type="Script" uid="uid://dq86wcj7lberl" path="res://scripts/dialogue_camera.gd" id="1_22xxf"]
+
+[node name="DialogueCamera" type="Node3D"]
+script = ExtResource("1_22xxf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+fov = 50.0

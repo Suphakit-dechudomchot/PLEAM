@@ -1,0 +1,11 @@
+Model Information:
+* title:	basketball - aizismus
+* source:	https://sketchfab.com/3d-models/basketball-aizismus-8da4a12586a54bf78fc2cd5616ca0a1f
+* author:	aizismus (https://sketchfab.com/aizismus)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "basketball - aizismus" (https://sketchfab.com/3d-models/basketball-aizismus-8da4a12586a54bf78fc2cd5616ca0a1f) by aizismus (https://sketchfab.com/aizismus) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

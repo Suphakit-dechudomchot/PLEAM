@@ -48,37 +48,43 @@ uv1_scale = Vector3(20, 30, 1)
 [sub_resource type="Shader" id="Shader_bs814"]
 code = "shader_type spatial;
 
-// --- ส่วนที่ให้คุณปรับใน Inspector ---
+// --- Inspector Controls ---
 uniform vec4 water_color : source_color = vec4(0.0, 0.5, 1.0, 0.5);
 uniform float roughness : hint_range(0.0, 1.0) = 0.1;
-uniform sampler2D texture_normal;
-uniform float scroll_speed = 0.1;
+uniform sampler2D texture_normal : hint_normal;
 
-// เพิ่มตัวแปร UV1 เหมือน Material ปกติ
+// แยกความเร็ว X และ Z เพื่อให้ปรับทิศทางได้
+uniform vec2 scroll_speed = vec2(0.05, 0.05); 
+uniform float wave_strength : hint_range(0.0, 1.0) = 0.5;
+
 uniform vec3 uv1_scale = vec3(1.0, 1.0, 1.0);
 uniform vec3 uv1_offset = vec3(0.0, 0.0, 0.0);
-// ----------------------------------
+// --------------------------
 
 varying vec3 uv1_triplanar_pos;
 varying vec3 uv1_power_normal;
 
 void vertex() {
-	// คำนวณ Triplanar โดยใช้ค่า Scale และ Offset ที่คุณตั้ง
 	uv1_power_normal = pow(abs(NORMAL), vec3(10.0));
 	uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
 
-	// นำ uv1_scale และ uv1_offset มาคำนวณตำแหน่งลายน้ำ
+	// คำนวณตำแหน่งพื้นฐาน
 	uv1_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv1_scale + uv1_offset;
-
-	// สั่งให้น้ำไหล
-	uv1_triplanar_pos.xz += TIME * scroll_speed;
+	
+	// สั่งให้น้ำไหล (ย้ายมาคูณตรงนี้เพื่อให้คุมความเร็วได้ละเอียดขึ้น)
+	// การใช้ += ใน vertex บางทีอาจทำให้เกิดอาการกระตุกถ้าค่า TIME สูงมากๆ
+	// แนะนำให้บวกค่าไหลเข้าไปในขั้นตอนคำนวณ UV แทน
 }
 
 vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
 	vec4 samp = vec4(0.0);
-	samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
-	samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
-	samp += texture(p_sampler, p_triplanar_pos.zy) * p_weights.x;
+	
+	// ใส่การเคลื่อนที่ (Scrolling) ลงไปในแต่ละแกนของ Triplanar
+	vec2 scrolling = TIME * scroll_speed;
+	
+	samp += texture(p_sampler, p_triplanar_pos.xy + scrolling) * p_weights.z;
+	samp += texture(p_sampler, p_triplanar_pos.xz + scrolling) * p_weights.y;
+	samp += texture(p_sampler, p_triplanar_pos.zy + scrolling) * p_weights.x;
 	return samp;
 }
 
@@ -87,8 +93,11 @@ void fragment() {
 	ALPHA = water_color.a;
 	ROUGHNESS = roughness;
 
-	// ดึงค่า Normal Map มาใช้
-	NORMAL_MAP = triplanar_texture(texture_normal, uv1_power_normal, uv1_triplanar_pos).rgb;
+	// ดึงค่า Normal Map
+	vec3 normal_map = triplanar_texture(texture_normal, uv1_power_normal, uv1_triplanar_pos).rgb;
+	
+	// ปรับความชัดของคลื่น (Normal Intensity)
+	NORMAL_MAP = mix(vec3(0.5, 0.5, 1.0), normal_map, wave_strength);
 }"
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_cv7jf"]
@@ -104,7 +113,8 @@ shader = SubResource("Shader_bs814")
 shader_parameter/water_color = Color(0.0341674, 0.171155, 0.131908, 0.94902)
 shader_parameter/roughness = 0.0
 shader_parameter/texture_normal = SubResource("NoiseTexture2D_stgxj")
-shader_parameter/scroll_speed = 0.05
+shader_parameter/scroll_speed = Vector2(0, 0.2)
+shader_parameter/wave_strength = 0.5
 shader_parameter/uv1_scale = Vector3(0.2, 0.1, 0.1)
 shader_parameter/uv1_offset = Vector3(0.2, 0.1, 0.1)
 

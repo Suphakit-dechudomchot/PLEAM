@@ -1,14 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://bdsj68oskwkex"]
 
-[ext_resource type="Script" uid="uid://bdmr7ynop1wn1" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bdmr7ynop1wn1" path="res://asset/charactors/pleum_student/player.gd" id="1_3vyb7"]
 [ext_resource type="AudioStream" uid="uid://ty6sl3hmfqcc" path="res://asset/sound/walking.wav" id="2_g2els"]
-[ext_resource type="Texture2D" uid="uid://dsge15wtftd7y" path="res://asset/characters/Pleam.png" id="2_tasrk"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1k5u8"]
+load_path = "res://.godot/imported/pleam (2).png-631846a63a7cca57dcda51ca1022c3f5.s3tc.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d4iin"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_tasrk")
+"texture": SubResource("CompressedTexture2D_1k5u8")
 }],
 "loop": true,
 "name": &"idle",
