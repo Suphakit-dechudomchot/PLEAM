@@ -1,0 +1,252 @@
+[gd_scene load_steps=12 format=3 uid="uid://bals4qc30n77n"]
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_rie6r"]
+target_nodepath = NodePath("../../target/Neck")
+tip_nodepath = NodePath("Hip/Upper/collarbone/Neck/face")
+ccdik_data_chain_length = 1
+joint_data/0/bone_index = 9
+joint_data/0/bone2d_node = NodePath("Hip/Upper/collarbone/Neck")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_crlql"]
+target_nodepath = NodePath("../../target/L elbow")
+tip_nodepath = NodePath("Hip/Upper/collarbone/ArmLsholder/ArmLLower")
+ccdik_data_chain_length = 1
+joint_data/0/bone_index = 3
+joint_data/0/bone2d_node = NodePath("Hip/Upper/collarbone/ArmLsholder")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_plk42"]
+target_nodepath = NodePath("../../target/L hand")
+tip_nodepath = NodePath("Hip/Upper/collarbone/ArmLsholder/ArmLLower/ArmLHand")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 4
+joint_data/0/bone2d_node = NodePath("Hip/Upper/collarbone/ArmLsholder/ArmLLower")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 3
+joint_data/1/bone2d_node = NodePath("Hip/Upper/collarbone/ArmLsholder")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = false
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_r6xse"]
+target_nodepath = NodePath("../../target/R elbow")
+tip_nodepath = NodePath("Hip/Upper/collarbone/ArmRsholder/ArmRLower")
+ccdik_data_chain_length = 1
+joint_data/0/bone_index = 6
+joint_data/0/bone2d_node = NodePath("Hip/Upper/collarbone/ArmRsholder")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_sv33q"]
+target_nodepath = NodePath("../../target/R hand")
+tip_nodepath = NodePath("Hip/Upper/collarbone/ArmRsholder/ArmRLower/ArmRHand")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 7
+joint_data/0/bone2d_node = NodePath("Hip/Upper/collarbone/ArmRsholder/ArmRLower")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 6
+joint_data/1/bone2d_node = NodePath("Hip/Upper/collarbone/ArmRsholder")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = false
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_uaaco"]
+target_nodepath = NodePath("../../target/L knee")
+tip_nodepath = NodePath("Hip/LegLupper/LegLlower")
+ccdik_data_chain_length = 1
+joint_data/0/bone_index = 11
+joint_data/0/bone2d_node = NodePath("Hip/LegLupper")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_ymvsc"]
+target_nodepath = NodePath("../../target/L foot")
+tip_nodepath = NodePath("Hip/LegLupper/LegLlower/LegLfoot")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 12
+joint_data/0/bone2d_node = NodePath("Hip/LegLupper/LegLlower")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 11
+joint_data/1/bone2d_node = NodePath("Hip/LegLupper")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = false
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_rwpf0"]
+target_nodepath = NodePath("../../target/R knee")
+tip_nodepath = NodePath("Hip/LegRupper/LegRlower")
+ccdik_data_chain_length = 1
+joint_data/0/bone_index = 14
+joint_data/0/bone2d_node = NodePath("Hip/LegRupper")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_ew5mc"]
+target_nodepath = NodePath("../../target/R foot")
+tip_nodepath = NodePath("Hip/LegRupper/LegRlower/LegRfoot")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 15
+joint_data/0/bone2d_node = NodePath("Hip/LegRupper/LegRlower")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 14
+joint_data/1/bone2d_node = NodePath("Hip/LegRupper")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = false
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_vqc8v"]
+target_nodepath = NodePath("../../target/Body")
+tip_nodepath = NodePath("Hip/Upper/collarbone")
+ccdik_data_chain_length = 1
+joint_data/0/bone_index = 1
+joint_data/0/bone2d_node = NodePath("Hip/Upper")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_ft6oh"]
+modification_count = 10
+modifications/0 = SubResource("SkeletonModification2DCCDIK_rie6r")
+modifications/1 = SubResource("SkeletonModification2DCCDIK_crlql")
+modifications/2 = SubResource("SkeletonModification2DCCDIK_plk42")
+modifications/3 = SubResource("SkeletonModification2DCCDIK_r6xse")
+modifications/4 = SubResource("SkeletonModification2DCCDIK_sv33q")
+modifications/5 = SubResource("SkeletonModification2DCCDIK_uaaco")
+modifications/6 = SubResource("SkeletonModification2DCCDIK_ymvsc")
+modifications/7 = SubResource("SkeletonModification2DCCDIK_rwpf0")
+modifications/8 = SubResource("SkeletonModification2DCCDIK_ew5mc")
+modifications/9 = SubResource("SkeletonModification2DCCDIK_vqc8v")
+
+[node name="skeleton" type="Node2D"]
+
+[node name="container" type="Node2D" parent="."]
+position = Vector2(504, 262)
+scale = Vector2(0.5, 0.5)
+
+[node name="Body" type="Node2D" parent="container"]
+
+[node name="Bones" type="Node2D" parent="container"]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="container/Bones"]
+modification_stack = SubResource("SkeletonModificationStack2D_ft6oh")
+
+[node name="Hip" type="Bone2D" parent="container/Bones/Skeleton2D"]
+position = Vector2(922, 419)
+rest = Transform2D(1, 0, 0, 1, 922, 419)
+
+[node name="Upper" type="Bone2D" parent="container/Bones/Skeleton2D/Hip"]
+position = Vector2(-1, -76)
+rest = Transform2D(1, 0, 0, 1, -1, -76)
+
+[node name="collarbone" type="Bone2D" parent="container/Bones/Skeleton2D/Hip/Upper"]
+position = Vector2(-10, -439)
+rest = Transform2D(1, 0, 0, 1, -10, -439)
+
+[node name="ArmLsholder" type="Bone2D" parent="container/Bones/Skeleton2D/Hip/Upper/collarbone"]
+position = Vector2(-179.047, 54.0035)
+rest = Transform2D(1, 0, 0, 1, -179.047, 54.0035)
+
+[node name="ArmLLower" type="Bone2D" parent="container/Bones/Skeleton2D/Hip/Upper/collarbone/ArmLsholder"]
+position = Vector2(-199, 157.001)
+rest = Transform2D(1, 0, 0, 1, -199, 157.001)
+
+[node name="ArmLHand" type="Bone2D" parent="container/Bones/Skeleton2D/Hip/Upper/collarbone/ArmLsholder/ArmLLower"]
+position = Vector2(-171, 129)
+rest = Transform2D(1, 0, 0, 1, -171, 129)
+
+[node name="ArmRsholder" type="Bone2D" parent="container/Bones/Skeleton2D/Hip/Upper/collarbone"]
+position = Vector2(194, 58)
+rest = Transform2D(1, 0, 0, 1, 194, 58)
+
+[node name="ArmRLower" type="Bone2D" parent="container/Bones/Skeleton2D/Hip/Upper/collarbone/ArmRsholder"]
+position = Vector2(215.298, 162.683)
+scale = Vector2(0.999992, 0.999992)
+rest = Transform2D(0.999992, 0, 0, 0.999992, 215.298, 162.683)
+
+[node name="ArmRHand" type="Bone2D" parent="container/Bones/Skeleton2D/Hip/Upper/collarbone/ArmRsholder/ArmRLower"]
+position = Vector2(189, 139)
+rest = Transform2D(1, 0, 0, 1, 189, 139)
+
+[node name="Neck" type="Bone2D" parent="container/Bones/Skeleton2D/Hip/Upper/collarbone"]
+position = Vector2(-1.01794, -39.9983)
+scale = Vector2(0.999985, 0.999985)
+rest = Transform2D(0.999985, 0, 0, 0.999985, -1.01794, -39.9983)
+
+[node name="face" type="Bone2D" parent="container/Bones/Skeleton2D/Hip/Upper/collarbone/Neck"]
+position = Vector2(0, -30.0003)
+rest = Transform2D(1, -2.98023e-08, 2.98023e-08, 1, 0, -30.0003)
+
+[node name="LegLupper" type="Bone2D" parent="container/Bones/Skeleton2D/Hip"]
+position = Vector2(-101, 115)
+scale = Vector2(0.999996, 0.999996)
+rest = Transform2D(0.999996, 0, 0, 0.999996, -101, 115)
+
+[node name="LegLlower" type="Bone2D" parent="container/Bones/Skeleton2D/Hip/LegLupper"]
+position = Vector2(0.000488281, 357.999)
+scale = Vector2(0.99999, 0.99999)
+rest = Transform2D(0.99999, 0, 0, 0.99999, 0.000488281, 357.999)
+
+[node name="LegLfoot" type="Bone2D" parent="container/Bones/Skeleton2D/Hip/LegLupper/LegLlower"]
+position = Vector2(3.99878, 439.004)
+scale = Vector2(1.00006, 1.00006)
+rest = Transform2D(1.00006, 0, 0, 1.00006, 3.99878, 439.004)
+
+[node name="LegRupper" type="Bone2D" parent="container/Bones/Skeleton2D/Hip"]
+position = Vector2(100, 115)
+rest = Transform2D(1, 0, 0, 1, 100, 115)
+
+[node name="LegRlower" type="Bone2D" parent="container/Bones/Skeleton2D/Hip/LegRupper"]
+position = Vector2(0.000732422, 358)
+rest = Transform2D(1, 0, 0, 1, 0.000732422, 358)
+
+[node name="LegRfoot" type="Bone2D" parent="container/Bones/Skeleton2D/Hip/LegRupper/LegRlower"]
+position = Vector2(4, 439)
+rest = Transform2D(1, 0, 0, 1, 4, 439)
+
+[node name="target" type="Node2D" parent="container"]
+
+[node name="Body" type="Node2D" parent="container/target"]
+position = Vector2(916, -120)
+
+[node name="Neck" type="Node2D" parent="container/target"]
+position = Vector2(914, -488)
+
+[node name="L elbow" type="Node2D" parent="container/target"]
+position = Vector2(536, 732)
+
+[node name="L hand" type="Node2D" parent="container/target"]
+position = Vector2(662, 648)
+
+[node name="R elbow" type="Node2D" parent="container/target"]
+position = Vector2(1174, 220)
+
+[node name="R hand" type="Node2D" parent="container/target"]
+position = Vector2(1170, 710)
+
+[node name="L knee" type="Node2D" parent="container/target"]
+position = Vector2(852, 1648)
+
+[node name="L foot" type="Node2D" parent="container/target"]
+position = Vector2(840, 1768)
+
+[node name="R knee" type="Node2D" parent="container/target"]
+position = Vector2(986, 1630)
+
+[node name="R foot" type="Node2D" parent="container/target"]
+position = Vector2(1024, 1776)

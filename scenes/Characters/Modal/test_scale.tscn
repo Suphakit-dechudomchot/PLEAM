@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi6fhyrk3h7uy"]
+
+[ext_resource type="PackedScene" uid="uid://ct00qj0uc6gej" path="res://scenes/Characters/2D/Bang/bank_student.tscn" id="1_mq2fc"]
+[ext_resource type="PackedScene" uid="uid://kmkwpwg630st" path="res://scenes/Characters/2D/Not/not.tscn" id="2_lefaq"]
+[ext_resource type="PackedScene" uid="uid://cyhe2uu74wuxo" path="res://scenes/Characters/2D/Pang/pang_student.tscn" id="3_u75o0"]
+[ext_resource type="PackedScene" uid="uid://cde1vtordh4mn" path="res://scenes/Characters/2D/Pink/Pink_student.tscn" id="4_8fkhh"]
+[ext_resource type="PackedScene" uid="uid://c73u02bruvsfp" path="res://scenes/Characters/2D/Pleam/Pleam_student.tscn" id="5_8512v"]
+
+[node name="Test scale" type="Node2D"]
+
+[node name="Modal" type="Node2D" parent="."]
+
+[node name="Bank_student" parent="Modal" instance=ExtResource("1_mq2fc")]
+position = Vector2(-372, 21)
+
+[node name="Not" parent="Modal" instance=ExtResource("2_lefaq")]
+position = Vector2(31, -12)
+
+[node name="Pang_student" parent="Modal" instance=ExtResource("3_u75o0")]
+position = Vector2(593, 41)
+
+[node name="Pink_student" parent="Modal" instance=ExtResource("4_8fkhh")]
+position = Vector2(671, 54)
+
+[node name="pleam" parent="Modal" instance=ExtResource("5_8512v")]
+position = Vector2(-703, 31)
