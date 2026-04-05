@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://craqhtudjdcl5"]
+
+[ext_resource type="PackedScene" uid="uid://dambejohcq4sw" path="res://asset/3D/fence/scene.gltf" id="1_jd3o8"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_jd3o8")]
+
+[node name="01_2" parent="Sketchfab_model/ffdcf664f7934fc3b73a6b01ed0cbd42_fbx/RootNode" index="0"]
+visible = false
+
+[node name="01" parent="Sketchfab_model/ffdcf664f7934fc3b73a6b01ed0cbd42_fbx/RootNode" index="2"]
+visible = false

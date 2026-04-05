@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://b53nao7cc7bif"]
+
+[ext_resource type="PackedScene" uid="uid://b3mmvb3y73qaj" path="res://scenes/main scenes/Sky.tscn" id="1_o13qd"]
+[ext_resource type="PackedScene" uid="uid://dpxfjyalv8wwb" path="res://scenes/main scenes/player.tscn" id="2_3x5ab"]
+[ext_resource type="PackedScene" uid="uid://c3bk8v12q0d7s" path="res://scenes/other/School.tscn" id="3_3x5ab"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vi1qk"]
+albedo_color = Color(0.247059, 0, 0.180392, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6bgyk"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o13qd"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Main" type="Node3D"]
+
+[node name="Sky" parent="." instance=ExtResource("1_o13qd")]
+current_time = 12.0
+cloud_speed_multiplier = 0.1
+time_running = true
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(10000, 0, 0, 0, 1, 0, 0, 0, 10000, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_vi1qk")
+mesh = SubResource("BoxMesh_6bgyk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_o13qd")
+
+[node name="player" parent="." instance=ExtResource("2_3x5ab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 186.536, 14.2544, -139.613)
+motion_mode = 1
+
+[node name="School" parent="." instance=ExtResource("3_3x5ab")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 157.658, 7, -150.669)

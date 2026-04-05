@@ -1,0 +1,11 @@
+Model Information:
+* title:	school
+* source:	https://sketchfab.com/3d-models/school-abad51a6409a443d99e0028347842a91
+* author:	mamont nikita (https://sketchfab.com/mamontnikita62)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "school" (https://sketchfab.com/3d-models/school-abad51a6409a443d99e0028347842a91) by mamont nikita (https://sketchfab.com/mamontnikita62) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

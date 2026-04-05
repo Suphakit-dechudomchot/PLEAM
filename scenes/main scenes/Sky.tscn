@@ -1,0 +1,179 @@
+[gd_scene load_steps=13 format=3 uid="uid://b3mmvb3y73qaj"]
+
+[ext_resource type="Shader" uid="uid://dtif888op08gr" path="res://scripts/sky.gdshader" id="1_xdxbx"]
+[ext_resource type="Texture2D" uid="uid://bi3k5kxtc1v7e" path="res://asset/2D/Sun.png" id="2_78qf0"]
+
+[sub_resource type="GDScript" id="GDScript_st3dd"]
+script/source = "extends Node3D
+
+@export_group(\"Time Settings\")
+@export_range(0, 24) var current_time: float = 6.5
+@export var day_length_seconds: float = 60.0       
+@export var cloud_speed_multiplier: float = 0.2 
+@export var time_running: bool = true # <--- เพิ่มตัวแปรนี้เพื่อเปิด-ปิดการเดินของเวลา
+
+@export_group(\"Sun Appearance\")
+@export var constant_sun_size: float = 2.5 
+
+@export_group(\"References\")
+@export var sun_light: DirectionalLight3D
+@export var world_env: WorldEnvironment
+
+# --- (sky_data ชุดเดิมที่คุณใช้อยู่) ---
+var sky_data = {
+    0.0:  {\"top\": Color(\"020205\"), \"hor\": Color(\"050510\"), \"energy\": 0.0}, 
+    5.0:  {\"top\": Color(\"0a1128\"), \"hor\": Color(\"1a1a2e\"), \"energy\": 0.0},
+    6.5:  {\"top\": Color(\"1a3a6d\"), \"hor\": Color(\"d35400\"), \"energy\": 0.45},
+    9.0:  {\"top\": Color(\"102a52\"), \"hor\": Color(\"4a90e2\"), \"energy\": 0.75},
+    12.0: {\"top\": Color(\"0b3d91\"), \"hor\": Color(\"3498db\"), \"energy\": 0.9},
+    17.5: {\"top\": Color(\"341f47\"), \"hor\": Color(\"c0392b\"), \"energy\": 0.8},
+    19.0: {\"top\": Color(\"0a1128\"), \"hor\": Color(\"1a1a2e\"), \"energy\": 0.1},
+    21.0: {\"top\": Color(\"020205\"), \"hor\": Color(\"050510\"), \"energy\": 0.0}
+}
+
+var total_cloud_time: float = 0.0
+
+func _process(delta: float) -> void:
+    # ตรวจสอบว่าเปิดให้เวลาเดินหรือไม่
+    if time_running:
+        var time_step = (delta / day_length_seconds) * 24.0
+        current_time += time_step
+        if current_time >= 24.0: current_time = 0.0
+        
+        # ให้เมฆขยับเฉพาะตอนเวลาเดิน (หรือจะแยกกันก็ได้แล้วแต่ชอบครับ)
+        
+    
+    # อัปเดตระบบแสงและสีเสมอ เพื่อให้เวลาเราลากแถบ current_time ใน Inspector แล้วสีเปลี่ยนตามทันที
+    total_cloud_time += delta * cloud_speed_multiplier
+    _update_system()
+
+func _update_system():
+    var rot_x = ((current_time - 6.0) / 12.0) * 180.0
+    if sun_light:
+        sun_light.rotation_degrees = Vector3(-rot_x, -90, 0)
+        sun_light.visible = (current_time > 5.2 and current_time < 18.8)
+    
+    _interpolate_sky_colors()
+
+func _interpolate_sky_colors():
+    var keys = sky_data.keys()
+    keys.sort()
+    
+    var before_key = keys[0]
+    var after_key = keys[0]
+    for i in range(keys.size()):
+        if current_time >= keys[i]:
+            before_key = keys[i]
+            after_key = keys[(i + 1) % keys.size()]
+    
+    var duration = after_key - before_key
+    if duration <= 0: duration += 24.0
+    var weight = (current_time - before_key) / duration
+    
+    var t_top = sky_data[before_key][\"top\"].lerp(sky_data[after_key][\"top\"], weight)
+    var t_hor = sky_data[before_key][\"hor\"].lerp(sky_data[after_key][\"hor\"], weight)
+    var t_energy = lerp(sky_data[before_key][\"energy\"], sky_data[after_key][\"energy\"], weight)
+
+    if world_env and world_env.environment and world_env.environment.sky:
+        var mat = world_env.environment.sky.sky_material
+        if mat is ShaderMaterial:
+            mat.set_shader_parameter(\"top_color\", t_top)
+            mat.set_shader_parameter(\"bottom_color\", t_hor)
+            mat.set_shader_parameter(\"sun_energy\", t_energy)
+            
+            var cloud_col = t_hor.lerp(Color.WHITE, 0.4)
+            mat.set_shader_parameter(\"clouds_light_color\", cloud_col)
+            
+            var scatter_darkness = 0.5 if (current_time > 7.0 and current_time < 11.0) else 0.3
+            mat.set_shader_parameter(\"sun_scatter\", t_hor.darkened(scatter_darkness))
+            
+            mat.set_shader_parameter(\"astro_scale\", constant_sun_size)
+            mat.set_shader_parameter(\"cloud_time_offset\", total_cloud_time)
+            
+            var star_val = smoothstep(5.5, 4.0, current_time) + smoothstep(18.5, 20.0, current_time)
+            mat.set_shader_parameter(\"stars_intensity\", clamp(star_val * 1.5, 0.0, 1.5))
+            
+    if sun_light:
+        sun_light.light_energy = t_energy
+        sun_light.light_color = t_hor.lerp(Color.WHITE, 0.2)
+"
+
+[sub_resource type="Gradient" id="Gradient_xdxbx"]
+offsets = PackedFloat32Array(0.00952381, 1)
+colors = PackedColorArray(0, 0.14902, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_78qf0"]
+gradient = SubResource("Gradient_xdxbx")
+
+[sub_resource type="Curve" id="Curve_0y5rc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.175719, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.732648), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ouhub"]
+curve = SubResource("Curve_0y5rc")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1w3lh"]
+noise_type = 5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v6m27"]
+seamless = true
+noise = SubResource("FastNoiseLite_1w3lh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ah26j"]
+shader = ExtResource("1_xdxbx")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_v6m27")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_v6m27")
+shader_parameter/cloud_curves = SubResource("CurveTexture_ouhub")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.4
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.03
+shader_parameter/clouds_light_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_shadow_intensity = 3.0
+shader_parameter/cloud_time_offset = 0.0
+shader_parameter/sun_energy = 1.0
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_v6m27")
+shader_parameter/high_clouds_density = 0.2
+shader_parameter/top_color = Color(0.34902, 0.588235, 1, 1)
+shader_parameter/bottom_color = Color(0, 0.329412, 0.968627, 1)
+shader_parameter/sun_scatter = Color(0.298039, 0.298039, 0.298039, 1)
+shader_parameter/astro_tint = Color(0.905882, 0.788235, 0.627451, 1)
+shader_parameter/astro_sampler = ExtResource("2_78qf0")
+shader_parameter/astro_scale = 1.9
+shader_parameter/astro_intensity = 3.0
+shader_parameter/stars_intensity = 0.0
+shader_parameter/shooting_stars_intensity = 0.0
+shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_kfbb5"]
+sky_material = SubResource("ShaderMaterial_ah26j")
+
+[sub_resource type="Environment" id="Environment_sqnlr"]
+background_mode = 2
+sky = SubResource("Sky_kfbb5")
+tonemap_mode = 2
+tonemap_white = 2.0
+glow_enabled = true
+adjustment_enabled = true
+adjustment_contrast = 1.2
+adjustment_saturation = 0.7
+adjustment_color_correction = SubResource("GradientTexture1D_78qf0")
+
+[node name="Sky" type="Node3D" node_paths=PackedStringArray("sun_light", "world_env")]
+script = SubResource("GDScript_st3dd")
+day_length_seconds = 30.0
+cloud_speed_multiplier = 0.05
+time_running = false
+constant_sun_size = 5.0
+sun_light = NodePath("DirectionalLight3D")
+world_env = NodePath("WorldEnvironment")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sqnlr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.771935, 0.635701, 0, -0.635701, 0.771935, 0, 0, 0)
+light_energy = 3.3
+shadow_enabled = true
+directional_shadow_max_distance = 587.0
