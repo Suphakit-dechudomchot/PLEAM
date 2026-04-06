@@ -1,0 +1,11 @@
+Model Information:
+* title:	Computer Mouse (low-poly)
+* source:	https://sketchfab.com/3d-models/computer-mouse-low-poly-95eb7d0363bb4db79bd50168280ea1c7
+* author:	LagzDesign (https://sketchfab.com/LagzDesign)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Computer Mouse (low-poly)" (https://sketchfab.com/3d-models/computer-mouse-low-poly-95eb7d0363bb4db79bd50168280ea1c7) by LagzDesign (https://sketchfab.com/LagzDesign) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

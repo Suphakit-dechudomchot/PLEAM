@@ -1,0 +1,11 @@
+Model Information:
+* title:	Chair V230223
+* source:	https://sketchfab.com/3d-models/chair-v230223-12d180bd90244b55b18f10426de27669
+* author:	saintkastiell (https://sketchfab.com/saintkastiell)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Chair V230223" (https://sketchfab.com/3d-models/chair-v230223-12d180bd90244b55b18f10426de27669) by saintkastiell (https://sketchfab.com/saintkastiell) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

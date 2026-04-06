@@ -1,0 +1,8 @@
+Model Information:
+* title:	Mansion furnished
+* source:	https://sketchfab.com/3d-models/mansion-furnished-78a9c8c32d614937b426c3ae1f789055
+* author:	katydid (https://sketchfab.com/Katydid.)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

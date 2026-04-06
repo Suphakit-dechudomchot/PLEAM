@@ -1,18 +1,3 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpxfjyalv8wwb"]
-
-[ext_resource type="Script" uid="uid://b4yllif0vgp27" path="res://scripts/player.gd" id="1_y3pes"]
-[ext_resource type="AudioStream" uid="uid://ty6sl3hmfqcc" path="res://asset/sound/walking.wav" id="2_g2els"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1k5u8"]
-
-[node name="player" type="CharacterBody3D"]
-script = ExtResource("1_y3pes")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_1k5u8")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.509568, 0)
-
-[node name="FootstepAudio" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("2_g2els")
+version https://git-lfs.github.com/spec/v1
+oid sha256:202c31869f0233eb9de9ea1b3183b97686f76049111610ecd4db8e6e1e5895bc
+size 737
